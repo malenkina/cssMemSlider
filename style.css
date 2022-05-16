@@ -37,7 +37,7 @@ main {
 
 .sliders {
 	background-color: #ddd;
-	height: inherit;
+	height: 100%;
 	overflow: hidden;
 	position: relative;
 	width: inherit;
@@ -58,8 +58,8 @@ main {
 
 .slide1, .slide2, .slide3, .slide4, .slide5 {
     background-size: cover;
-    height: 100vh;
-    width: 100%;
+    height: auto;
+    max-width: 100%;
 
 }
 
@@ -152,7 +152,7 @@ label:hover,
     display: flex;
     width: 350%;
     overflow: hidden;
-    padding-left: 3vh;
+    margin-top: -2vh;
 }
 
 .title {
@@ -160,7 +160,7 @@ label:hover,
     min-width: 100%;
     display: flex;
     align-items: center;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     transition: all 0.7s ease;
 }
 
@@ -174,8 +174,7 @@ label:hover,
 }
 
 .footeryearandrs {
-    line-height: 50px;
-    margin-left: 20px;
+    margin-left: 70vh;
 }
 
 .year {
@@ -198,6 +197,15 @@ label:hover,
     main {
         margin-left: 0;
     }
+    .footeryearandrs {
+        margin-left: 30vh;
+    }
+    .titles {
+        margin-top: 2vh;
+    }
+    .wrapper {
+        height: 80%;
+    }
 }
 
 
@@ -211,8 +219,11 @@ label:hover,
     html, body {
         overflow-x: hidden;
     }
-    .sliders {
-        height: 80%;
+    main {
+        height: 70vh;
+    }
+    .title {
+        font-size: 1.2rem;
     }
     .bottom {
         align-items: center;
@@ -223,6 +234,7 @@ label:hover,
         padding: 0;
         order: 2;
         text-align: center;
+        margin-top: 0;
     }
     .title {
         justify-content: center;
@@ -241,5 +253,21 @@ label:hover,
 
     .footeryearandrs {
       width: 300px;
+      margin-left: 0;
     }
+  }
+
+  @media (max-width: 320px) {
+      main {
+          height: 86.5vh;
+      }
+      .wrapper {
+          height: 90%;
+      }
+      .title {
+          font-size: 1.2rem;
+      }
+      .footer {
+          height: 15vh;
+      }
   }
