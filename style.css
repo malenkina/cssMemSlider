@@ -50,11 +50,11 @@ main {
 	width: inherit;
 }
 
-.slide1 { background-image: url(/meme/chmonja-kot.jpg); }
-.slide2 { background-image: url(/meme/andzhelina-dzholi-lvov-paren-v-naushnikah.jpg); }
-.slide3 { background-image: url(/meme/turnik.jpg); }
-.slide4 { background-image: url(/meme/ege-po-borba-mem.jpg); }
-.slide5 { background-image: url(/meme/мем-this-is-fine.png); }
+.slide1 { background-image: url(../../meme/chmonja-kot.jpg); }
+.slide2 { background-image: url(../../meme/andzhelina-dzholi-lvov-paren-v-naushnikah.jpg); }
+.slide3 { background-image: url(../../meme/turnik.jpg); }
+.slide4 { background-image: url(../../meme/ege-po-borba-mem.jpg); }
+.slide5 { background-image: url(../../meme/мем-this-is-fine.png); }
 
 .slide1, .slide2, .slide3, .slide4, .slide5 {
     background-size: cover;
