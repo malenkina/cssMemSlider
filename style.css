@@ -53,8 +53,8 @@ main {
 .slide1 { background-image: url(../../meme/chmonja-kot.jpg); }
 .slide2 { background-image: url(../../meme/andzhelina-dzholi-lvov-paren-v-naushnikah.jpg); }
 .slide3 { background-image: url(../../meme/turnik.jpg); }
-.slide4 { background-image: url(../../meme/ege-po-borba-mem.jpg); }
-.slide5 { background-image: url(../../meme/мем-this-is-fine.png); }
+.slide4 { background-image: url(../../meme/stepan.jpg); }
+.slide5 { background-image: url(../../meme/thisis.gif); }
 
 .slide1, .slide2, .slide3, .slide4, .slide5 {
     background-size: cover;
@@ -136,9 +136,16 @@ label:hover,
 #slide5:checked ~ .sliders > .slide5 {
 	opacity: 1;
 	z-index: 1;
-	-webkit-transform: scale(1);
-	-moz-transform: scale(1);
-	-o-transform: scale(1);
+	transform: scale(1);
+}
+
+#slide1:checked ~ .bottom .titles .text1,
+#slide2:checked ~ .bottom .titles .text2,
+#slide3:checked ~ .bottom .titles .text3,
+#slide4:checked ~ .bottom .titles .text4,
+#slide5:checked ~ .bottom .titles .text5 {
+	opacity: 1;
+	z-index: 1;
 	transform: scale(1);
 }
 
@@ -146,22 +153,26 @@ label:hover,
 .bottom {
     display: flex;
     justify-content: space-between;
+    height: 5vh;
 }
 
 .titles {
-    display: flex;
     width: 350%;
-    overflow: hidden;
+    justify-content: center;
+    align-items: center;
     margin-top: -2vh;
+    overflow: hidden;
 }
 
 .title {
-    width: 100%;
-    min-width: 100%;
-    display: flex;
-    align-items: center;
+    position: fixed;
+    transition: transform ease-in-out .5s, opacity ease-in-out .5s;
+}
+
+.text1, .text2, .text3, .text4, .text5  {
+    margin-top: 3vh;
     font-size: 1.5rem;
-    transition: all 0.7s ease;
+    opacity: 0;
 }
 
 .footer {
@@ -171,6 +182,7 @@ label:hover,
     align-items: center;
     background-color: #506071;
     text-shadow: none;
+    z-index: 10;
 }
 
 .footeryearandrs {
@@ -220,7 +232,10 @@ label:hover,
         overflow-x: hidden;
     }
     main {
-        height: 70vh;
+        height: 90vh;
+    }
+    .wrapper {
+        padding: 7vh 0vh;
     }
     .title {
         font-size: 1.2rem;
@@ -238,6 +253,7 @@ label:hover,
     }
     .title {
         justify-content: center;
+        margin-top: -13vh;
     }
     .footer {
         gap: 0px;
@@ -257,17 +273,46 @@ label:hover,
     }
   }
 
+  @media (max-width: 488px) {
+      main {
+          height: 87.9vh;
+      }
+      .sliders {
+          height: 60%;
+          width: 100%;
+      }
+      .slide {
+          height: 100%;
+          width: 100%;
+      }
+      .text4 {
+        margin-left: 11vh;
+    }
+  }
+
   @media (max-width: 320px) {
       main {
-          height: 86.5vh;
+          height: 85vh;
       }
       .wrapper {
-          height: 90%;
+          width: 100%;
+          height: 60%;
+          margin-top: 13vh;
+      }
+      .slide {
+          height: 100%;
+      }
+      .sliders {
+          height: 60%;
       }
       .title {
           font-size: 1.2rem;
       }
       .footer {
           height: 15vh;
+      }
+      .titles {
+          margin-left: -5vh;
+          margin-right: 7vh;
       }
   }
