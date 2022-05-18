@@ -1,0 +1,318 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} 
+
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow-wrap: break-word;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Pacifico', cursive;
+    color: black;
+    text-shadow: 1px 1px 2px white;
+    background: #819ab5;
+}
+
+main {
+    max-width: 64rem;
+    height: 90vh;
+    padding: 7vh 7vh;
+    margin-left: 15rem;
+}
+
+.wrapper {
+	height: 100%;
+    padding: 2vh 2vh;
+	position: relative;
+	width: 100%;
+}
+
+.sliders {
+	background-color: #ddd;
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+	width: inherit;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+}
+
+.slide {
+	height: inherit;
+	position: absolute;
+	width: inherit;
+}
+
+.slide1 { background-image: url(./chmonja-kot.jpg); }
+.slide2 { background-image: url(./andzhelina-dzholi-lvov-paren-v-naushnikah.jpg); }
+.slide3 { background-image: url(./turnik.jpg); }
+.slide4 { background-image: url(./stepan.jpg); }
+.slide5 { background-image: url(./thisis.gif); }
+
+.slide1, .slide2, .slide3, .slide4, .slide5 {
+    background-size: cover;
+    height: auto;
+    max-width: 100%;
+
+}
+
+.text {
+    text-align: center;
+}
+
+.controls {
+    display: flex;
+    padding: 0 3vh;
+    justify-content: space-between;
+}
+
+
+label:after {
+	border: 2px solid #ddd;
+	content: " ";
+	display: block;
+	height: 12px;
+	left: -4px;
+	position: absolute;
+	top: -4px;
+	width: 12px;
+	border-radius: 50%;
+}
+
+label {
+	cursor: pointer;
+	display: inline-block;
+	height: 8px;
+	margin: 25px 12px 0 16px;
+	position: relative;
+	width: 8px;
+	border-radius: 50%;
+    transition: ease-in-out .5s;
+}
+
+label:hover, 
+#slide1:checked ~ .controls label:nth-of-type(1),
+#slide2:checked ~ .controls label:nth-of-type(2),
+#slide3:checked ~ .controls label:nth-of-type(3),
+#slide4:checked ~ .controls label:nth-of-type(4),
+#slide5:checked ~ .controls label:nth-of-type(5) {
+	background: #ddd;
+}
+
+#slide1:checked ~ .bottom .controls .circle1,
+#slide2:checked ~ .bottom .controls .circle2,
+#slide3:checked ~ .bottom .controls .circle3,
+#slide4:checked ~ .bottom .controls .circle4,
+#slide5:checked ~ .bottom .controls .circle5 {
+    background: black;
+}
+
+
+.wrapper > input {
+	display: none;
+}
+
+.slide {
+	height: inherit;
+	opacity: 0;
+	position: absolute;
+	width: inherit;
+	z-index: 0;
+	transform: scale(1.5);
+	transition: transform ease-in-out .5s, opacity ease-in-out .5s;
+}
+
+#slide1:checked ~ .sliders > .slide1,
+#slide2:checked ~ .sliders > .slide2,
+#slide3:checked ~ .sliders > .slide3,
+#slide4:checked ~ .sliders > .slide4,
+#slide5:checked ~ .sliders > .slide5 {
+	opacity: 1;
+	z-index: 1;
+	transform: scale(1);
+}
+
+#slide1:checked ~ .bottom .titles .text1,
+#slide2:checked ~ .bottom .titles .text2,
+#slide3:checked ~ .bottom .titles .text3,
+#slide4:checked ~ .bottom .titles .text4,
+#slide5:checked ~ .bottom .titles .text5 {
+	opacity: 1;
+	z-index: 1;
+	transform: scale(1);
+}
+
+
+.bottom {
+    display: flex;
+    justify-content: space-between;
+    height: 5vh;
+}
+
+.titles {
+    width: 350%;
+    justify-content: center;
+    align-items: center;
+    margin-top: -2vh;
+    overflow: hidden;
+}
+
+.title {
+    position: fixed;
+    transition: transform ease-in-out .5s, opacity ease-in-out .5s;
+}
+
+.text1, .text2, .text3, .text4, .text5  {
+    margin-top: 3vh;
+    font-size: 1.5rem;
+    opacity: 0;
+}
+
+.footer {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    background-color: #506071;
+    text-shadow: none;
+    z-index: 10;
+}
+
+.footeryearandrs {
+    margin-left: 70vh;
+}
+
+.year {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.rs {
+    text-decoration: none;
+    color: black;
+    margin-right: 15px;
+}
+
+.footerpic {
+    margin-top: 15px;
+    width: 55px;
+}
+
+@media (max-width: 1000px) {
+    main {
+        margin-left: 0;
+    }
+    .footeryearandrs {
+        margin-left: 30vh;
+    }
+    .titles {
+        margin-top: 2vh;
+    }
+    .wrapper {
+        height: 80%;
+    }
+}
+
+
+@media (max-width: 768px) {
+    html.open {
+        overflow: hidden;
+    }
+    body {
+        min-width: 320px;
+    }
+    html, body {
+        overflow-x: hidden;
+    }
+    main {
+        height: 90vh;
+    }
+    .wrapper {
+        padding: 7vh 0vh;
+    }
+    .title {
+        font-size: 1.2rem;
+    }
+    .bottom {
+        align-items: center;
+        flex-direction: column;
+    }
+    .titles {
+        width: 100%;
+        padding: 0;
+        order: 2;
+        text-align: center;
+        margin-top: 0;
+    }
+    .title {
+        justify-content: center;
+        margin-top: -13vh;
+    }
+    .footer {
+        gap: 0px;
+        flex-wrap: wrap;
+        justify-content: center;
+        display: flex;
+        height: auto;
+    }
+
+    .year {
+        margin: 0 10px;
+    }
+
+    .footeryearandrs {
+      width: 300px;
+      margin-left: 0;
+    }
+  }
+
+  @media (max-width: 488px) {
+      main {
+          height: 87.9vh;
+      }
+      .sliders {
+          height: 60%;
+          width: 100%;
+      }
+      .slide {
+          height: 100%;
+          width: 100%;
+      }
+      .text4 {
+        margin-left: 11vh;
+    }
+  }
+
+  @media (max-width: 320px) {
+      main {
+          height: 85vh;
+      }
+      .wrapper {
+          width: 100%;
+          height: 60%;
+          margin-top: 13vh;
+      }
+      .slide {
+          height: 100%;
+      }
+      .sliders {
+          height: 60%;
+      }
+      .title {
+          font-size: 1.2rem;
+      }
+      .footer {
+          height: 15vh;
+      }
+      .titles {
+          margin-left: -5vh;
+          margin-right: 7vh;
+      }
+  }
